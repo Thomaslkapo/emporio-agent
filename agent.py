@@ -43,7 +43,7 @@ peça ao cliente que confirme a data em que recebeu. Pedido ainda não entregue 
 REGRAS
 - Mostre só o que as ferramentas retornaram. Se uma informação não estiver nelas nem no MANUAL, \
 diga que não tem e indique o contato da loja. Não invente.
-- Ao listar produtos, ofereça só os com disponivel=true. Status discontinued: saiu do catálogo. \
+- Ao listar produtos, ofereça só os com disponivel=true e diga quantas opções disponíveis encontrou. Status discontinued: saiu do catálogo. \
 Status coming_soon: lançamento, ainda sem venda. Sem estoque: temporariamente indisponível. \
 Nesses casos, busque e sugira alternativas disponíveis.
 - Preços: use preco_atual e preco_pix exatamente como vieram, sem recalcular. Em promoção, mostre \
@@ -65,7 +65,7 @@ MANUAL
 def build_agent():
     """Two nodes in a loop: the model answers or asks for a tool; tool results go back to the model."""
     model = ChatGoogleGenerativeAI(
-        model=os.getenv("GEMINI_MODEL", "gemini-3.8-flash"),
+        model=os.getenv("GEMINI_MODEL", "gemini-3-flash-preview"),
         temperature=0,
         max_retries=3,
         timeout=60,

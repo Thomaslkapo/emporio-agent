@@ -1,5 +1,6 @@
 """Runs fixed conversations through the real agent and saves them to examples/. Run: python run_examples.py"""
 import sys
+import time
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -44,6 +45,7 @@ def main():
         lines = []
         for text in messages:
             lines += [f"**Cliente:** {text}", "", f"**Tom:** {ask(agent, text, name)}", ""]
+            time.sleep(40)  # free tier allows 5 requests per minute
         path.write_text("\n".join(lines), encoding="utf-8")
         print(f"\n=== {name}\n" + "\n".join(lines))
 
