@@ -69,7 +69,7 @@ def build_agent():
     model = ChatGoogleGenerativeAI(
         model=os.getenv("GEMINI_MODEL", "gemini-3-flash-preview"),
         temperature=0,
-        max_retries=3,
+        max_retries=2,
         timeout=60,
     ).bind_tools(TOOLS)
 
@@ -111,6 +111,7 @@ def main():
             break
         if not text:
             continue
+        print("(aguardando resposta...)")
         try:
             print(f"\nTom: {ask(agent, text)}\n")
         except Exception as error:
