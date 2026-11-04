@@ -1,0 +1,5 @@
+langchain-core==1.7.5
+langchain-google-genai==4.4.2
+langgraph==1.2.19
+python-dotenv==1.2.4
+truststore==0.10.5
