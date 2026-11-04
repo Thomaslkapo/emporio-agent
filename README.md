@@ -88,6 +88,7 @@ flowchart LR
 - The free Gemini tier allows few requests per minute (5 on this model) and can return overload (503) and quota (429) errors. The agent retries and then shows an error. A paid tier or a fallback model would make this more reliable.
 - I have no automated tests of the agent's answers, only of its tools. I would add an evaluation set of questions with expected behavior, to catch regressions when the prompt or model changes.
 - The prompt-level rules (tone, scope, refusing to reveal instructions) are not a guarantee against a determined user.
+- The sample conversations show this. Conversations 1, 2 and 4 used `gemini-3-flash-preview`; 3 and 5 used `gemini-3.1-flash-lite` because of quota and overload errors. I kept the answers unedited, and two of them have flaws: in 3, the agent presents the estimated delivery date as the actual one and doesn't ask the customer to confirm it, despite the prompt's instruction; in 5, it doesn't grant the 50% discount request, but it also doesn't explicitly refuse it. These are the kinds of regressions an evaluation set would catch.
 - A real deployment would need the WhatsApp integration, monitoring and live data instead of CSVs.
 
 ## Use of AI coding assistants
