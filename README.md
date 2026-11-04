@@ -95,5 +95,5 @@ flowchart LR
 I used **Claude Code** throughout this project.
 
 - **What it did:** read the challenge and the data, found the conflicts in the manual, wrote the first version of the code, tests and this README, and ran the agent to diagnose problems.
-- **What I decided:** the scope, keeping the solution simple, using a small part of the stack listed in the job description rather than all of it, and leaving RAG out. I also reviewed the result and the sample conversations before submitting.
+- **How I worked:** I set the goal and the constraints: a minimal solution, incremental commits and no unnecessary complexity. I asked whether to use the stack from the job description. Claude Code recommended a small LangGraph graph and no RAG, and I agreed after we discussed the trade-offs. It wrote most of the code. I tested the agent, reported problems such as the chat showing no feedback while waiting, reviewed the sample conversations, and studied the code so I could explain and defend each decision.
 - **How I checked it:** rules that must always hold have tests, and the conversations in `examples/` come from real runs of the agent, not from text written by hand.
